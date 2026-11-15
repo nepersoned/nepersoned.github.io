@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jinhyung Bae</title>
+<meta name="description" content="Jinhyung Bae — undergraduate researcher at Hankuk University of Foreign Studies. Test-time compute allocation and evaluation validity.">
+<style>
+:root {
+  --bg: #fdfdfc; --fg: #1b1b1a; --muted: #5d5d58; --line: #e4e3df; --accent: #1f5f8b; --tag: #f1f0ec;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #161616; --fg: #e9e8e4; --muted: #a3a29c; --line: #2d2d2b; --accent: #7fb6dc; --tag: #242422; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 56px 20px 72px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+header h1 { font-size: 30px; margin: 0; letter-spacing: -.3px; }
+header h1 span { font-size: 18px; font-weight: 400; color: var(--muted); margin-left: 8px; }
+.affil { color: var(--muted); margin: 4px 0 14px; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 15px; }
+h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1.4px; color: var(--muted); margin: 44px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+p { margin: 0 0 12px; }
+.pub { margin: 0 0 20px; }
+.pub .title { font-weight: 600; }
+.pub .meta { color: var(--muted); font-size: 15px; }
+.pub .note { font-size: 15px; margin-top: 3px; }
+.pub .tags { margin-top: 5px; display: flex; flex-wrap: wrap; gap: 6px; }
+.pub .tags a, .pub .tags span { font-size: 13px; background: var(--tag); border-radius: 4px; padding: 1px 8px; }
+.pub .tags span { color: var(--muted); }
+.me { font-weight: 600; }
+.row { display: flex; justify-content: space-between; gap: 16px; margin: 0 0 8px; }
+.row .when { color: var(--muted); white-space: nowrap; font-size: 15px; }
+.row .sub { color: var(--muted); font-size: 15px; }
+footer { margin-top: 56px; color: var(--muted); font-size: 13px; }
+@media (max-width: 560px) {
+  main { padding: 36px 16px 56px; }
+  .row { flex-direction: column; gap: 0; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <h1>Jinhyung Bae<span>배진형</span></h1>
+  <div class="affil">Undergraduate, Industrial and Management Engineering &amp; AI Data Convergence<br>Hankuk University of Foreign Studies, Korea</div>
+  <div class="links">
+    <a href="mailto:kevinbae2006@hufs.ac.kr">kevinbae2006@hufs.ac.kr</a>
+    <a href="https://orcid.org/0009-0002-6232-7722">ORCID</a>
+    <a href="https://github.com/nepersoned">GitHub</a>
+  </div>
+</header>
+
+<h2>About</h2>
+<p>I study when the results of AI systems and data analysis can be trusted. One line of my work asks how a model should spend a limited compute budget at inference time: when extra attempts, verification, or prior information actually pay off. The other asks how common evaluation practices, such as look-ahead leakage, circular answer keys, or grading against one's own reading, make results look better than they are, and how to measure and correct that.</p>
+<p>I build my own datasets from Korean public records (corporate disclosures, versioned statutes, historical texts), pre-register analyses where I can, and release code and data.</p>
+
+<h2>Papers</h2>
+
+<div class="pub">
+  <div class="title">Give Up to Get More: Priors, Not Policies, Govern Test-Time Compute Allocation</div>
+  <div class="meta"><span class="me">Jinhyung Bae</span> · 2026 · Under review</div>
+  <div class="note">The optimal allocation of repeated LLM attempts is inverted-U in difficulty, and the gain over round-robin comes from prior information, not from the policy; includes an audit of 221 allocation papers.</div>
+  <div class="tags"><a href="https://arxiv.org/abs/2611.06372">arXiv:2611.06372</a><a href="https://github.com/nepersoned/priors-not-policies">Code</a></div>
+  <div class="note" style="color:var(--muted)"><i>Builds on two earlier preprints on neural combinatorial optimization:</i> <a href="https://arxiv.org/abs/2608.13087" title="Sampling Luck Masquerades as Allocation Gain">arXiv:2608.13087</a> · <a href="https://arxiv.org/abs/2609.27917" title="Spread and Scale: What Determines Whether Test-Time Budget Allocation Pays">arXiv:2609.27917</a> · <a href="https://github.com/nepersoned/best-of-k-allocation">code</a></div>
+</div>
+
+<div class="pub">
+  <div class="title">LexTemporis: Grading Executable Legal Rules Against Answer Keys Independent of the Grader's Reading</div>
+  <div class="meta"><span class="me">Jinhyung Bae</span> · 2026 · Under review</div>
+  <div class="note">A test bed of 10,901 firm-years of SME status disclosed by Korean listed companies, with every version of the governing rules, for grading rules-as-code against records of what actually happened.</div>
+  <div class="tags"><a href="https://github.com/nepersoned/lextemporis">Code &amp; data</a></div>
+</div>
+
+<div class="pub">
+  <div class="title">Assessing Evaluation Circularity in Machine Translation of Korean Historical Records</div>
+  <div class="meta"><span class="me">Jinhyung Bae</span>, Dain Kil, Seongmin Oh, Seungmin Lee, Seongmin Park · 2026 · Under review</div>
+  <div class="note">When the answer key is built from the same name lexicon given to the model, names outside the lexicon go unevaluated; we measure this and propose a reporting protocol.</div>
+  <div class="tags"><a href="https://github.com/nepersoned/malmoi-sjw-eval">Replication material</a></div>
+</div>
+
+<div class="pub">
+  <div class="title">Forecasting Distress with Statements That Did Not Yet Exist: Look-Ahead Leakage and Data Vintages in Early-Warning Models</div>
+  <div class="meta"><span class="me">Jinhyung Bae</span> · 2026 · Under review</div>
+  <div class="note">Aligning financial statements by fiscal-year end instead of actual filing date inflates PR-AUC by about 80% in KOSDAQ distress prediction; information public at prediction time recovers the gap.</div>
+  <div class="tags"><a href="https://github.com/nepersoned/lookahead-leakage-distress">Code &amp; results</a></div>
+</div>
+
+<h2>Experience</h2>
+<div class="row"><div>Laboratory Teaching Assistant, HUFS<div class="sub">Big Data Mining; Advanced Deep Learning</div></div><div class="when">Mar – Jun 2026</div></div>
+<div class="row"><div>IT Assistant, Dept. of Industrial and Management Engineering, HUFS</div><div class="when">Sep 2026 – present</div></div>
+<div class="row"><div>DAT Data Analysis Club, HUFS<div class="sub">Capstone project Malmoi (Grand Prize): knowledge-base-augmented translation of historical texts</div></div><div class="when">Feb 2026 – present</div></div>
+
+<h2>Honors</h2>
+<div class="row"><div>Excellence Award (2nd place), 2nd ITDA Seoul Metropolitan Area Intercollegiate Data Science Conference</div><div class="when">May 2026</div></div>
+<div class="row"><div>Grand Prize, DAT Capstone</div><div class="when">2026</div></div>
+
+<footer>Last updated November 2026</footer>
+</main>
+</body>
+</html>
