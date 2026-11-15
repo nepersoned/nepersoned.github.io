@@ -18,13 +18,18 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.62 "Times New Roman", Times, "Noto Serif KR", "Nanum Myeongjo", Batang, serif; }
-html[lang="ko"] body { word-break: keep-all; }
+html[lang="ko"] body { word-break: keep-all; font-family: "Noto Serif KR", "Nanum Myeongjo", Batang, serif; font-size: 16px; }
+html[lang="ko"] .pub .title, html[lang="ko"] .pub .meta, html[lang="ko"] .links, html[lang="ko"] .email { font-family: "Times New Roman", Times, serif; }
+.ko-font { font-family: "Noto Serif KR", "Nanum Myeongjo", Batang, serif; }
+.en-font { font-family: "Times New Roman", Times, serif; }
+.top { display: flex; gap: 24px; align-items: center; }
+.photo { width: 116px; height: 116px; border-radius: 50%; object-fit: cover; object-position: 50% 22%; flex: none; border: 1px solid var(--line); }
 main { max-width: 760px; margin: 0 auto; padding: 56px 20px 72px; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 header { position: relative; }
 header h1 { font-size: 32px; margin: 0; letter-spacing: -.2px; padding-right: 110px; }
-header h1 span { font-size: 19px; font-weight: 400; color: var(--muted); margin-left: 8px; }
+header h1 small { font-size: 19px; font-weight: 400; color: var(--muted); margin-left: 8px; }
 .affil { color: var(--muted); margin: 4px 0 14px; }
 .links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 24px; line-height: 1; }
 .links a { color: var(--muted); transition: color .15s; }
@@ -49,7 +54,9 @@ footer { margin-top: 56px; color: var(--muted); font-size: 14px; }
 html[lang="en"] [lang="ko"], html[lang="ko"] [lang="en"] { display: none !important; }
 @media (max-width: 560px) {
   main { padding: 36px 16px 56px; }
-  header h1 { padding-right: 0; padding-top: 34px; }
+  header h1 { padding-right: 0; }
+  .top { flex-direction: column; align-items: flex-start; gap: 14px; padding-top: 30px; }
+  .photo { width: 96px; height: 96px; }
   .row { flex-direction: column; gap: 0; }
 }
 </style>
@@ -62,7 +69,10 @@ html[lang="en"] [lang="ko"], html[lang="ko"] [lang="en"] { display: none !import
     <button type="button" data-set="en" aria-pressed="true">EN</button>
     <button type="button" data-set="ko" aria-pressed="false">한국어</button>
   </div>
-  <h1><span lang="en" style="margin:0;font-size:inherit;font-weight:inherit;color:inherit">Jinhyung Bae</span><span lang="ko" style="margin:0;font-size:inherit;font-weight:inherit;color:inherit">배진형</span><span lang="en">배진형</span><span lang="ko">Jinhyung Bae</span></h1>
+  <div class="top">
+  <img class="photo" src="photo.jpg" alt="Jinhyung Bae">
+  <div>
+  <h1><span lang="en"><span class="en-font">Jinhyung Bae</span><small class="ko-font">배진형</small></span><span lang="ko"><span class="ko-font">배진형</span><small class="en-font">Jinhyung Bae</small></span></h1>
   <div class="affil" lang="en">Undergraduate, Industrial and Management Engineering &amp; AI Data Convergence<br>Hankuk University of Foreign Studies, Korea</div>
   <div class="affil" lang="ko">한국외국어대학교 산업경영공학과 · AI데이터융합학부 이중전공</div>
   <div class="links">
@@ -73,6 +83,8 @@ html[lang="en"] [lang="ko"], html[lang="ko"] [lang="en"] { display: none !import
     <a href="https://www.linkedin.com/in/jinhyung-bae-b78924357" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
   </div>
   <div class="email">kevinbae2006@hufs.ac.kr</div>
+  </div>
+  </div>
 </header>
 
 <h2><span lang="en">About</span><span lang="ko">소개</span></h2>
