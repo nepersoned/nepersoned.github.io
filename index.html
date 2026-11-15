@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 :root {
   --bg: #fdfdfc; --fg: #1b1b1a; --muted: #5d5d58; --line: #e4e3df; --accent: #1f5f8b; --tag: #f1f0ec;
@@ -25,7 +26,10 @@ header { position: relative; }
 header h1 { font-size: 32px; margin: 0; letter-spacing: -.2px; padding-right: 110px; }
 header h1 span { font-size: 19px; font-weight: 400; color: var(--muted); margin-left: 8px; }
 .affil { color: var(--muted); margin: 4px 0 14px; }
-.links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 16px; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 24px; line-height: 1; }
+.links a { color: var(--muted); transition: color .15s; }
+.links a:hover { color: var(--accent); text-decoration: none; }
+.email { margin-top: 8px; font-size: 15px; color: var(--muted); }
 .lang { position: absolute; top: 6px; right: 0; display: flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
 .lang button { font: inherit; font-size: 14px; background: none; color: var(--muted); border: 0; padding: 3px 11px; cursor: pointer; }
 .lang button[aria-pressed="true"] { background: var(--tag); color: var(--fg); font-weight: 600; }
@@ -62,12 +66,13 @@ html[lang="en"] [lang="ko"], html[lang="ko"] [lang="en"] { display: none !import
   <div class="affil" lang="en">Undergraduate, Industrial and Management Engineering &amp; AI Data Convergence<br>Hankuk University of Foreign Studies, Korea</div>
   <div class="affil" lang="ko">한국외국어대학교 산업경영공학과 · AI데이터융합학부 이중전공</div>
   <div class="links">
-    <a href="mailto:kevinbae2006@hufs.ac.kr">kevinbae2006@hufs.ac.kr</a>
-    <a href="https://scholar.google.com/citations?user=I7LTTuUAAAAJ">Google Scholar</a>
-    <a href="https://orcid.org/0009-0002-6232-7722">ORCID</a>
-    <a href="https://github.com/nepersoned">GitHub</a>
-    <a href="https://www.linkedin.com/in/jinhyung-bae-b78924357">LinkedIn</a>
+    <a href="mailto:kevinbae2006@hufs.ac.kr" title="kevinbae2006@hufs.ac.kr" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    <a href="https://scholar.google.com/citations?user=I7LTTuUAAAAJ" title="Google Scholar" aria-label="Google Scholar"><i class="fa-brands fa-google-scholar"></i></a>
+    <a href="https://orcid.org/0009-0002-6232-7722" title="ORCID" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
+    <a href="https://github.com/nepersoned" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/jinhyung-bae-b78924357" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
   </div>
+  <div class="email">kevinbae2006@hufs.ac.kr</div>
 </header>
 
 <h2><span lang="en">About</span><span lang="ko">소개</span></h2>
