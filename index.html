@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jinhyung Bae</title>
 <meta name="description" content="Jinhyung Bae — undergraduate researcher at Hankuk University of Foreign Studies. Test-time compute allocation and evaluation validity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #fdfdfc; --fg: #1b1b1a; --muted: #5d5d58; --line: #e4e3df; --accent: #1f5f8b; --tag: #f1f0ec;
@@ -13,30 +16,36 @@
   :root { --bg: #161616; --fg: #e9e8e4; --muted: #a3a29c; --line: #2d2d2b; --accent: #7fb6dc; --tag: #242422; }
 }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.62 "Times New Roman", Times, "Noto Serif KR", "Nanum Myeongjo", Batang, serif; }
+html[lang="ko"] body { word-break: keep-all; }
 main { max-width: 760px; margin: 0 auto; padding: 56px 20px 72px; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
-header h1 { font-size: 30px; margin: 0; letter-spacing: -.3px; }
-header h1 span { font-size: 18px; font-weight: 400; color: var(--muted); margin-left: 8px; }
+header { position: relative; }
+header h1 { font-size: 32px; margin: 0; letter-spacing: -.2px; padding-right: 110px; }
+header h1 span { font-size: 19px; font-weight: 400; color: var(--muted); margin-left: 8px; }
 .affil { color: var(--muted); margin: 4px 0 14px; }
-.links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 15px; }
-h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1.4px; color: var(--muted); margin: 44px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 16px; }
+.lang { position: absolute; top: 6px; right: 0; display: flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.lang button { font: inherit; font-size: 14px; background: none; color: var(--muted); border: 0; padding: 3px 11px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--tag); color: var(--fg); font-weight: 600; }
+h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 1.4px; color: var(--muted); margin: 44px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
 p { margin: 0 0 12px; }
 .pub { margin: 0 0 20px; }
-.pub .title { font-weight: 600; }
-.pub .meta { color: var(--muted); font-size: 15px; }
-.pub .note { font-size: 15px; margin-top: 3px; }
+.pub .title { font-weight: 700; }
+.pub .meta { color: var(--muted); font-size: 16px; }
+.pub .note { font-size: 16px; margin-top: 3px; }
 .pub .tags { margin-top: 5px; display: flex; flex-wrap: wrap; gap: 6px; }
-.pub .tags a, .pub .tags span { font-size: 13px; background: var(--tag); border-radius: 4px; padding: 1px 8px; }
-.pub .tags span { color: var(--muted); }
-.me { font-weight: 600; }
+.pub .tags a { font-size: 14px; background: var(--tag); border-radius: 4px; padding: 1px 8px; }
+.me { font-weight: 700; }
 .row { display: flex; justify-content: space-between; gap: 16px; margin: 0 0 8px; }
-.row .when { color: var(--muted); white-space: nowrap; font-size: 15px; }
-.row .sub { color: var(--muted); font-size: 15px; }
-footer { margin-top: 56px; color: var(--muted); font-size: 13px; }
+.row .when { color: var(--muted); white-space: nowrap; font-size: 16px; }
+.row .sub { color: var(--muted); font-size: 16px; }
+footer { margin-top: 56px; color: var(--muted); font-size: 14px; }
+html[lang="en"] [lang="ko"], html[lang="ko"] [lang="en"] { display: none !important; }
 @media (max-width: 560px) {
   main { padding: 36px 16px 56px; }
+  header h1 { padding-right: 0; padding-top: 34px; }
   .row { flex-direction: column; gap: 0; }
 }
 </style>
@@ -45,8 +54,13 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; }
 <main>
 
 <header>
-  <h1>Jinhyung Bae<span>배진형</span></h1>
-  <div class="affil">Undergraduate, Industrial and Management Engineering &amp; AI Data Convergence<br>Hankuk University of Foreign Studies, Korea</div>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-set="en" aria-pressed="true">EN</button>
+    <button type="button" data-set="ko" aria-pressed="false">한국어</button>
+  </div>
+  <h1><span lang="en" style="margin:0;font-size:inherit;font-weight:inherit;color:inherit">Jinhyung Bae</span><span lang="ko" style="margin:0;font-size:inherit;font-weight:inherit;color:inherit">배진형</span><span lang="en">배진형</span><span lang="ko">Jinhyung Bae</span></h1>
+  <div class="affil" lang="en">Undergraduate, Industrial and Management Engineering &amp; AI Data Convergence<br>Hankuk University of Foreign Studies, Korea</div>
+  <div class="affil" lang="ko">한국외국어대학교 산업경영공학과 · AI데이터융합학부 이중전공</div>
   <div class="links">
     <a href="mailto:kevinbae2006@hufs.ac.kr">kevinbae2006@hufs.ac.kr</a>
     <a href="https://scholar.google.com/citations?user=I7LTTuUAAAAJ">Google Scholar</a>
@@ -56,51 +70,78 @@ footer { margin-top: 56px; color: var(--muted); font-size: 13px; }
   </div>
 </header>
 
-<h2>About</h2>
+<h2><span lang="en">About</span><span lang="ko">소개</span></h2>
+<div lang="en">
 <p>I study when the results of AI systems and data analysis can be trusted. One line of my work asks how a model should spend a limited compute budget at inference time: when extra attempts, verification, or prior information actually pay off. The other asks how common evaluation practices, such as look-ahead leakage, circular answer keys, or grading against one's own reading, make results look better than they are, and how to measure and correct that.</p>
 <p>I build my own datasets from Korean public records (corporate disclosures, versioned statutes, historical texts), pre-register analyses where I can, and release code and data.</p>
+</div>
+<div lang="ko">
+<p>AI 시스템과 데이터 분석의 결과를 언제 믿을 수 있는지를 연구합니다. 한 갈래는 모델이 추론 시점에 한정된 계산 예산을 어떻게 써야 하는지, 곧 추가 시도와 검증, 사전 정보가 언제 실제로 효과를 내는지를 다룹니다. 다른 한 갈래는 미래정보 누수, 순환적인 정답지, 자기 해석을 기준으로 한 채점 같은 흔한 평가 관행이 결과를 실제보다 좋아 보이게 만드는 방식을 다루고, 그 영향을 측정하고 바로잡는 방법을 찾습니다.</p>
+<p>한국의 공공 기록(기업 공시, 버전별 법령, 고문헌)으로 데이터셋을 직접 구축하고, 가능한 경우 분석을 사전 등록하며, 코드와 데이터를 공개합니다.</p>
+</div>
 
-<h2>Papers</h2>
+<h2><span lang="en">Papers</span><span lang="ko">논문</span></h2>
 
 <div class="pub">
   <div class="title">Give Up to Get More: Priors, Not Policies, Govern Test-Time Compute Allocation</div>
-  <div class="meta"><span class="me">Jinhyung Bae</span> · 2026 · Under review</div>
-  <div class="note">The optimal allocation of repeated LLM attempts is inverted-U in difficulty, and the gain over round-robin comes from prior information, not from the policy; includes an audit of 221 allocation papers.</div>
+  <div class="meta"><span class="me">Jinhyung Bae</span> · 2026 · <span lang="en">Under review</span><span lang="ko">심사 중</span></div>
+  <div class="note" lang="en">The optimal allocation of repeated LLM attempts is inverted-U in difficulty, and the gain over round-robin comes from prior information, not from the policy; includes an audit of 221 allocation papers.</div>
+  <div class="note" lang="ko">LLM 반복 시도의 최적 배분은 난이도에 대해 역U자형이며, 균등 배분 대비 이득은 배분 정책이 아니라 사전 정보에서 나옴을 보임. 배분 논문 221편 검토 포함.</div>
   <div class="tags"><a href="https://arxiv.org/abs/2611.06372">arXiv:2611.06372</a><a href="https://github.com/nepersoned/priors-not-policies">Code</a></div>
-  <div class="note" style="color:var(--muted)"><i>Builds on two earlier preprints on neural combinatorial optimization:</i> <a href="https://arxiv.org/abs/2608.13087" title="Sampling Luck Masquerades as Allocation Gain">arXiv:2608.13087</a> · <a href="https://arxiv.org/abs/2609.27917" title="Spread and Scale: What Determines Whether Test-Time Budget Allocation Pays">arXiv:2609.27917</a> · <a href="https://github.com/nepersoned/best-of-k-allocation">code</a></div>
+  <div class="note" style="color:var(--muted)"><i lang="en">Builds on two earlier preprints on neural combinatorial optimization:</i><i lang="ko">신경망 조합최적화에 관한 선행 프리프린트 2편에서 출발:</i> <a href="https://arxiv.org/abs/2608.13087" title="Sampling Luck Masquerades as Allocation Gain">arXiv:2608.13087</a> · <a href="https://arxiv.org/abs/2609.27917" title="Spread and Scale: What Determines Whether Test-Time Budget Allocation Pays">arXiv:2609.27917</a> · <a href="https://github.com/nepersoned/best-of-k-allocation">code</a></div>
 </div>
 
 <div class="pub">
   <div class="title">LexTemporis: Grading Executable Legal Rules Against Answer Keys Independent of the Grader's Reading</div>
-  <div class="meta"><span class="me">Jinhyung Bae</span> · 2026 · Under review</div>
-  <div class="note">A test bed of 10,901 firm-years of SME status disclosed by Korean listed companies, with every version of the governing rules, for grading rules-as-code against records of what actually happened.</div>
+  <div class="meta"><span class="me">Jinhyung Bae</span> · 2026 · <span lang="en">Under review</span><span lang="ko">심사 중</span></div>
+  <div class="note" lang="en">A test bed of 10,901 firm-years of SME status disclosed by Korean listed companies, with every version of the governing rules, for grading rules-as-code against records of what actually happened.</div>
+  <div class="note" lang="ko">한국 상장사가 공시한 중소기업 여부 10,901개 기업-연도와 관련 법령의 모든 버전으로, 코드로 옮긴 법 규칙을 실제 결과 기록에 대고 채점하는 시험대를 구축.</div>
   <div class="tags"><a href="https://github.com/nepersoned/lextemporis">Code &amp; data</a></div>
 </div>
 
 <div class="pub">
   <div class="title">Assessing Evaluation Circularity in Machine Translation of Korean Historical Records</div>
-  <div class="meta"><span class="me">Jinhyung Bae</span>, Dain Kil, Seongmin Oh, Seungmin Lee, Seongmin Park · 2026 · Under review</div>
-  <div class="note">When the answer key is built from the same name lexicon given to the model, names outside the lexicon go unevaluated; we measure this and propose a reporting protocol.</div>
+  <div class="meta"><span class="me">Jinhyung Bae</span>, Dain Kil, Seongmin Oh, Seungmin Lee, Seongmin Park · 2026 · <span lang="en">Under review</span><span lang="ko">심사 중</span></div>
+  <div class="note" lang="en">When the answer key is built from the same name lexicon given to the model, names outside the lexicon go unevaluated; we measure this and propose a reporting protocol.</div>
+  <div class="note" lang="ko">모델에 준 인명 사전으로 정답지를 만들면 사전에 없는 인명은 평가되지 않는 순환 구조를 측정하고, 보고 지침을 제안.</div>
   <div class="tags"><a href="https://github.com/nepersoned/malmoi-sjw-eval">Replication material</a></div>
 </div>
 
 <div class="pub">
   <div class="title">Forecasting Distress with Statements That Did Not Yet Exist: Look-Ahead Leakage and Data Vintages in Early-Warning Models</div>
-  <div class="meta"><span class="me">Jinhyung Bae</span> · 2026 · Under review</div>
-  <div class="note">Aligning financial statements by fiscal-year end instead of actual filing date inflates PR-AUC by about 80% in KOSDAQ distress prediction; information public at prediction time recovers the gap.</div>
+  <div class="meta"><span class="me">Jinhyung Bae</span> · 2026 · <span lang="en">Under review</span><span lang="ko">심사 중</span></div>
+  <div class="note" lang="en">Aligning financial statements by fiscal-year end instead of actual filing date inflates PR-AUC by about 80% in KOSDAQ distress prediction; information public at prediction time recovers the gap.</div>
+  <div class="note" lang="ko">코스닥 부실 예측에서 재무제표를 실제 공시일이 아닌 결산일 기준으로 붙이면 PR-AUC가 약 80% 부풀려지며, 예측 시점에 공개된 정보로 그 차이를 회복할 수 있음을 보임.</div>
   <div class="tags"><a href="https://github.com/nepersoned/lookahead-leakage-distress">Code &amp; results</a></div>
 </div>
 
-<h2>Experience</h2>
-<div class="row"><div>Laboratory Teaching Assistant, HUFS<div class="sub">Big Data Mining; Advanced Deep Learning</div></div><div class="when">Mar – Jun 2026</div></div>
-<div class="row"><div>IT Assistant, Dept. of Industrial and Management Engineering, HUFS</div><div class="when">Sep 2026 – present</div></div>
-<div class="row"><div>DAT Data Analysis Club, HUFS<div class="sub">Capstone project Malmoi (Grand Prize): knowledge-base-augmented translation of historical texts</div></div><div class="when">Feb 2026 – present</div></div>
+<h2><span lang="en">Experience</span><span lang="ko">경력</span></h2>
+<div class="row"><div><span lang="en">Laboratory Teaching Assistant, HUFS</span><span lang="ko">실습 조교, 한국외국어대학교</span><div class="sub"><span lang="en">Big Data Mining; Advanced Deep Learning</span><span lang="ko">빅데이터 마이닝, 고급 딥러닝</span></div></div><div class="when"><span lang="en">Mar – Jun 2026</span><span lang="ko">2026.03 – 2026.06</span></div></div>
+<div class="row"><div><span lang="en">IT Assistant, Dept. of Industrial and Management Engineering, HUFS</span><span lang="ko">IT 조교, 한국외국어대학교 산업경영공학과</span></div><div class="when"><span lang="en">Sep 2026 – present</span><span lang="ko">2026.09 – 현재</span></div></div>
+<div class="row"><div><span lang="en">DAT Data Analysis Club, HUFS</span><span lang="ko">DAT 데이터 분석 동아리, 한국외국어대학교</span><div class="sub"><span lang="en">Capstone project Malmoi (Grand Prize): knowledge-base-augmented translation of historical texts</span><span lang="ko">캡스톤 프로젝트 '말모이'(대상): 지식베이스 증강 고문헌 번역</span></div></div><div class="when"><span lang="en">Feb 2026 – present</span><span lang="ko">2026.02 – 현재</span></div></div>
 
-<h2>Honors</h2>
-<div class="row"><div>Excellence Award (2nd place), 2nd ITDA Seoul Metropolitan Area Intercollegiate Data Science Conference</div><div class="when">May 2026</div></div>
-<div class="row"><div>Grand Prize, DAT Capstone</div><div class="when">2026</div></div>
+<h2><span lang="en">Honors</span><span lang="ko">수상</span></h2>
+<div class="row"><div><span lang="en">Excellence Award (2nd place), 2nd ITDA Seoul Metropolitan Area Intercollegiate Data Science Conference</span><span lang="ko">우수상(2위), 제2회 ITDA 수도권 대학 연합 데이터 사이언스 학술대회</span></div><div class="when"><span lang="en">May 2026</span><span lang="ko">2026.05</span></div></div>
+<div class="row"><div><span lang="en">Grand Prize, DAT Capstone</span><span lang="ko">대상, DAT 캡스톤</span></div><div class="when">2026</div></div>
 
-<footer>Last updated November 2026</footer>
+<footer><span lang="en">Last updated November 2026</span><span lang="ko">2026년 11월 갱신</span></footer>
 </main>
+<script>
+(function () {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll('.lang button');
+  function set(l) {
+    root.setAttribute('lang', l);
+    document.title = l === 'ko' ? '배진형 Jinhyung Bae' : 'Jinhyung Bae';
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === l)); });
+    try { localStorage.setItem('lang', l); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  var q = new URLSearchParams(location.search).get('lang');
+  set(q === 'ko' || q === 'en' ? q : (saved || 'en'));
+  buttons.forEach(function (b) { b.addEventListener('click', function () { set(b.dataset.set); }); });
+})();
+</script>
 </body>
 </html>
